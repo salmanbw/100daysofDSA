@@ -1,7 +1,5 @@
 package tree;
 
-import org.w3c.dom.ls.LSOutput;
-
 class TreeNode{
     int data;
     TreeNode left;
@@ -34,8 +32,18 @@ public class TreeOpr {
         System.out.println("if identical "+ifIdentical(root,a));
     }
 
-    public static int LCA(TreeNode root, int num1, int num2){
-        return -1;
+    public static TreeNode LCA(TreeNode root, TreeNode num1, TreeNode num2){
+
+        if(root == null)
+            return null;
+
+        if(root.data > num1.data && root.data > num2.data)
+            return LCA(root.left, num1, num2);
+
+        if(root.data < num1.data && root.data < num2.data)
+            return LCA(root.right, num1, num2);
+
+        return root;
     }
 
 
