@@ -93,10 +93,13 @@ public class TreeOpr {
         if(root == null)
             return 0;
 
-        int left =  heightTree(root.left);
-        int right = heightTree(root.right);
+        int leftHeight =  heightTree(root.left);
+        int rightHeight = heightTree(root.right);
 
-        return 1 + left + right;
+        int leftDiameter = diameterTree(root.left);
+        int rightDiameter = diameterTree(root.right);
+
+        return Math.max(leftHeight + rightHeight, Math.max(leftDiameter,rightDiameter));
     }
 
     public static int sizeOfTree(TreeNode root){
