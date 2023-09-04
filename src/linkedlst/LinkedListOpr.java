@@ -28,6 +28,19 @@ public class LinkedListOpr {
 
     }
 
+    public static boolean hasCycle(LinkedList head) {
+        LinkedList fast = head;
+        LinkedList slow = head;
+
+        while(fast != null && fast.next != null){
+            fast = fast.next.next;
+            slow = slow.next;
+
+            if(fast == slow)
+                return true;
+        }
+        return false;
+    }
     public static LinkedList NthNode(LinkedList head,int n){
         for(int i=1;i<n;i++)
             head = head.next;
